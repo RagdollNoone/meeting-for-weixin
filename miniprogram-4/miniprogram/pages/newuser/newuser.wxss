@@ -1,0 +1,32 @@
+/* miniprogram/pages/newuser/newuser.wxss */
+.userinfo1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  justify-content: center
+}
+
+.userinfo2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  justify-content: center
+}
+
+.userinfo-nickname2 {
+  align-items: center;
+  font-size: 32rpx;
+  color: #007aff;
+  background-color: white;
+  background-size: cover;
+  margin-top: 40rpx;
+}
+.center{
+  text-align: center;
+}
+
+.user-motto{
+  text-align: center;
+}

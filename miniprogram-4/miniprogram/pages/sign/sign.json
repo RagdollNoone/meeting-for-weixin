@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "会议签到",
+  "usingComponents": {
+    
+  },
+  "enablePullDownRefresh": true
+}

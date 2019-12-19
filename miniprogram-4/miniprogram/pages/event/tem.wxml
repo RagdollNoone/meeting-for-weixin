@@ -1,0 +1,20 @@
+<template name='tem'>
+      <view class="table2">
+      <view class="tr">
+        <view class="td1" style="width: {{windowWidth}}px"><text decode="{{true}}">会议主题:&nbsp;&nbsp;{{Subject}}</text></view>
+      </view>
+      <view class="tr">
+        <view class="td" style="width: {{2*windowWidth}}px"><text decode="{{true}}">会议地点:&nbsp;&nbsp;{{Location}}</text></view>
+        <view class="td2" style="width: {{windowWidth}}px"><text decode="{{true}}">总计:&nbsp;{{Total}} 人</text></view>
+      </view>
+      <view class="tr">
+        <view class="td" style="width: {{windowWidth}}px"><text decode="{{true}}">开始时间:&nbsp;&nbsp;{{Start}}</text></view>
+        <view class="td2" style="width: {{windowWidth}}px"><text decode="{{true}}">迟到:&nbsp;{{Latenum}} 人</text></view>
+      </view>
+      <view class="tr">
+        <view class="td" style="width: {{windowWidth}}px"><text decode="{{true}}">组织者:&nbsp;&nbsp;{{Organizer}}</text></view>
+        <view class="td2" style="width: {{windowWidth}}px"><text decode="{{true}}">出勤率:&nbsp;{{Proportion}}%</text></view>
+      </view>
+     
+      </view>
+</template>

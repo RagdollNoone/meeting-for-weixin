@@ -1,0 +1,22 @@
+<template name='list'>
+   <view style="display:flex;" >
+      <view class="item">
+         <text style="color: #000000;">会议主题：{{Subject}}</text>
+         <text style="color: #696969;">会议地点：{{Location}}</text>
+         <text style="color: #696969;">开始时间：{{Start}}</text>
+         <text style="color: #696969;">结束时间：{{End}}</text>
+         <view wx:if="{{Isattend == '0'}}">
+         <text style="color: #696969;">签到时间：{{Attendtime}}</text>
+         </view>
+         <view wx:elif="{{Isattend == '1'}}">
+         <text style="color: #696969;">签到时间：{{Attendtime}}</text>
+         </view>
+         <view wx:elif="{{Isattend == '2'}}">
+         <text decode="{{true}}"style="color: #696969;">签到时间：{{Attendtime}}&nbsp;&nbsp;迟到</text>
+         </view>
+         <view wx:else>
+         <text decode="{{true}}"style="color: #696969;">签到时间：{{Attendtime}}未签到</text>
+         </view>
+      </view>
+   </view>
+</template>

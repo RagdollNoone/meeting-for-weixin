@@ -1,0 +1,65 @@
+<!--miniprogram/pages/event/event.wxml-->
+<import src='tem.wxml'/><!--导入列表项模板-->
+<import src='listitem.wxml'/>
+ <!-- <image class='background' src="../analogic.png" mode="aspectFill">
+</image> -->
+<view class="isorganizer" wx:if="{{isorganizer}}"><!-- 是组织者 -->
+   <view  class="tem1">
+  <template is="tem" data="{{Subject:Events.Subject,Location:Events.Location,Start:Events.Start,Organizer:Events.Organizer,Total:Events.Total,Latenum:Events.Latenum,Proportion:Events.Proportion}}"/>
+</view>
+ <view class="trb">
+        <view class="td3" style="width: {{windowWidth}}px">
+          <picker bindchange="binddelete" value="{{index}}" range="{{Attendees}}" range-key="Name">
+            <button class="userinfo-nickname2" >移除</button>
+          </picker>
+        </view>
+        <view class="td3" style="width: {{windowWidth}}px">
+        <picker mode="multiSelector" bindchange="bindinsert" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{objectgroups}}" range-key="name">
+            <button class="userinfo-nickname2" >添加</button>
+          </picker>
+        </view>
+</view>
+<scroll-view scroll-y style="height:80%;margin-top: 5px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll"    scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <block wx:for="{{Attendees}}" wx:key="{{index}}"  wx:for-item="Attendee">
+      <view class="tem2" wx:if="{{Attendee.Isattend == '2'}}" >
+       <template is="listitem" data="{{Name:Attendee.Name,Attendid:Attendee.Attendid,Address:Attendee.Address,Isattend:'迟到',Attendtime:''}}"/>
+      </view>
+      <view class="tem" wx:elif="{{Attendee.Isattend == '1'}}" >
+      <template is="listitem" data="{{Name:Attendee.Name,Attendid:Attendee.Attendid,Address:Attendee.Address,Isattend:'是',Attendtime:Attendee.Attendtime}}"/>
+      </view>
+      <view class="tem" style="background:#CDC9C9" wx:elif="{{Attendee.Isattend == '0'}}" >
+      <template is="listitem" data="{{Name:Attendee.Name,Attendid:Attendee.Attendid,Address:Attendee.Address,Isattend:'否',Attendtime:Attendee.Attendtime}}"/>
+      </view>
+      <view class="tem" style="background:#CDC9C9" wx:elif="{{Attendee.Isattend == '3'}}" >
+      <template is="listitem" data="{{Name:Attendee.Name,Attendid:Attendee.Attendid,Address:Attendee.Address,Isattend:'否',Attendtime:Attendee.Attendtime}}"/>
+      </view>
+    </block>
+</scroll-view>
+</view>
+<view class="isorganizer" wx:else><!-- 不是组织者 -->
+<view  class="tem1">
+  <template is="tem" data="{{Subject:Events.Subject,Location:Events.Location,Start:Events.Start,Organizer:Events.Organizer,Total:Events.Total,Latenum:Events.Latenum,Proportion:Events.Proportion}}"/>
+</view>
+<!-- <view>
+  <button class="userinfo-nickname2" bindtap="refuse">refuse</button>
+</view> -->
+<scroll-view scroll-y style="height:80%;margin-top: 20px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll"    scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <block wx:for="{{Attendees}}" wx:key="{{index}}"  wx:for-item="Attendee">
+      <view class="tem2" wx:if="{{Attendee.Isattend == '2'}}">
+       <template is="listitem" data="{{Name:Attendee.Name,Address:Attendee.Address,Isattend:'迟到',Attendtime:''}}"/>
+      </view>
+      <view class="tem" wx:elif="{{Attendee.Isattend == '1'}}" >
+      <template is="listitem" data="{{Name:Attendee.Name,Address:Attendee.Address,Isattend:'是',Attendtime:Attendee.Attendtime}}"/>
+      </view>
+      <view class="tem" style="background:#eb592d" wx:elif="{{Attendee.Isattend == '0'}}" >
+      <template is="listitem" data="{{Name:Attendee.Name,Address:Attendee.Address,Isattend:'否',Attendtime:Attendee.Attendtime}}"/>
+      </view>
+      <view class="tem" style="background:#eb592d" wx:elif="{{Attendee.Isattend == '3'}}" >
+      <template is="listitem" data="{{Name:Attendee.Name,Address:Attendee.Address,Isattend:'否',Attendtime:Attendee.Attendtime}}"/>
+      </view>
+      <view class="tem" style="background:#eb592d" wx:elif="{{Attendee.Isattend == '4'}}" >
+      <template is="listitem" data="{{Name:Attendee.Name,Address:Attendee.Address,Isattend:'否',Attendtime:Attendee.Attendtime}}"/>
+      </view>
+    </block>
+</scroll-view>
+</view>

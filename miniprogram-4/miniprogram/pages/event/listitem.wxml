@@ -1,0 +1,23 @@
+<template name='listitem'>
+      <view class="table2">
+        <view class="tr">
+          <view class="td1" ><text decode="{{true}}"><text style="color: #000000;">姓名：{{Name}}</text></text></view>
+        </view>
+        <view class="tr">
+          <view class="td1"><text decode="{{true}}"><text style="color: #363636;font-size: 0.8rem;">邮箱：{{Address}}</text></text></view>
+        </view>
+        <view class="tr2">
+          <view class="td3">
+            <view class="tr">
+              <view class="td1"><text style="color: #363636;font-size: 0.8rem;">是否签到：{{Isattend}}</text></view>
+            </view>
+            <view class="tr">
+              <view class="td1"><text style="color: #363636;font-size: 0.8rem;">签到时间：{{Attendtime}}</text></view>
+            </view>
+          </view>
+          <view class="td3">
+            <!-- <button class="userinfo-nickname2" bindtap="delete" data-Attendid="{{Attendid}}"data-Name="{{Name}}">移除</button> -->
+          </view>
+        </view>
+      </view>
+</template>

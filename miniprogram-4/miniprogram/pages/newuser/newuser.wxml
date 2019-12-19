@@ -1,0 +1,13 @@
+<!--miniprogram/pages/newuser/newuser.wxml-->
+<view class="container1">
+  <view class="userinfo2">
+    <text class="user-motto">Register for the first time using this Wechat applet</text>
+  </view>
+  <view class="userinfo1" style="margin-top: 40px;margin-bottom:200px">
+    <input placeholder="Your Email:" auto-focus class="center" bindinput="Email"/>
+    
+    <picker bindchange="bindinsert" value="{{index2}}" range="{{Groups}}" range-key="Group">
+            <button class="userinfo-nickname2" bindtap="useradd">Register</button>
+          </picker>
+  </view>
+</view>

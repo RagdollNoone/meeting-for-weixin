@@ -1,0 +1,61 @@
+<!--pages/sign/sign.wxml-->
+<import src='listitem.wxml'/><!--导入列表项模板-->
+<view style="height:8%">
+    <view class="wx-view_IfJZkK" data-c_e_id="wx_view_6df67227">
+        <view class="wx-view_u7aIQl" data-c_e_id="wx_viewe6eb0604">
+            <image class="wx-image_SC1alK" data-c_e_id="wx_imageb4843f3b" mode="aspectFill" src="{{userInfo.avatarUrl}}" style="background-size: cover; background-position: center center; background-repeat: no-repeat; background-image: url({{userInfo.avatarUrl}}); "/>
+            <view class="wx-view_3ggkNG" data-c_e_id="wx_view176871e8">
+                <text class="c-block wx-text_yvWBsn" data-c_e_id="wx_text3e7862f8">{{userInfo.nickName}}</text>
+                <text class="c-block wx-text_yvWBsn2" data-c_e_id="wx_texte70834a0">{{email}}</text>
+            </view>
+        </view>
+            <view >
+            <!-- <button class="userinfo-nickname2" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> Sign-in </button> -->
+        </view>
+    </view>
+</view>
+<view class="container1">
+<!-- 用户 openid -->
+<scroll-view scroll-y style="height:50%;margin-top: 20px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll"    scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+
+  <view wx:if="{{!isempty}}"><text></text></view>
+  <block wx:else>
+    <block wx:for="{{logs}}" wx:key="{{index}}"  wx:for-item="log">
+      <view class="template" style="background:#CDC9C9;" wx:if="{{log.Isattend == '0'}}" bindtap="details" data-Eventid="{{log.Eventid}}">
+       <template is="list" data="{{Subject:log.Subject,Location:log.Location,Start:log.Start,End:log.End,Attendtime:'',Isattend:log.Isattend}}"/>
+      </view>
+      <view class="template" style="background:#FFD700;" wx:elif="{{log.Isattend == '2'}}" bindtap="details" data-Eventid="{{log.Eventid}}">
+       <template is="list" data="{{Subject:log.Subject,Location:log.Location,Start:log.Start,End:log.End,Attendtime:log.Attendtime,Isattend:log.Isattend}}"/>
+      </view>
+      <view class="template" style="background:#eb592d;" wx:elif="{{log.Isattend == '3'}}" bindtap="details" data-Eventid="{{log.Eventid}}">
+       <template is="list" data="{{Subject:log.Subject,Location:log.Location,Start:log.Start,End:log.End,Attendtime:log.Attendtime,Isattend:log.Isattend}}"/>
+      </view>
+      <view  class="template" wx:else bindtap="details" data-Eventid="{{log.Eventid}}">
+      <template is="list" data="{{Subject:log.Subject,Location:log.Location,Start:log.Start,End:log.End,Attendtime:log.Attendtime,Isattend:log.Isattend}}"/>
+      </view>
+    </block>
+</block>
+</scroll-view>
+  <view class="userinfo1" style="margin-top: 30px;margin-bottom:140px">
+  <button class="userinfo-nickname2" bindtap="attend">扫一扫</button>
+  <text class="c-block weui-footer__links" data-c_e_id="wx_text_9d838170" style="margin-top:10px">点击扫一扫签到</text>
+    <!-- <button class="userinfo-nickname2" style="color:white" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    <block wx:else>
+      <view class='buttonview' wx:if="{{isarray}}">
+        <!-- <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="Subject">
+          <button class="userinfo-nickname2" bindtap="attend">Take part in</button>
+        </picker>  
+         <button class="userinfo-nickname2" bindtap="attend">扫码签到</button>
+      </view>
+      <block wx:else>
+        <button class="userinfo-nickname2" bindtap="attend">扫码签到</button>
+      </block>
+    </block> -->
+  </view>
+  <view class="weui-msg__extra-area" data-c_e_id="wx_view_80cabb14">
+        <view class="weui-footer" data-c_e_id="wx_view_5eb0c2da">
+            <text class="c-block weui-footer__links" data-c_e_id="wx_text_9d838170">If you need help</text>
+            <text class="c-block weui-footer__text" data-c_e_id="wx_text_a6af931a">Please contact the office on the second floor. </text>
+        </view>
+    </view>
+</view>
